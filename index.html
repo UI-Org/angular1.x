@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="./app.js" ></script>
+<body data-ng-app="demo-app">
+    <div data-ng-controller="DemoController" data-ng-init="user.age=12">
+        <div>{{user.name}}</div>
+        <input data-ng-model="user.name"  placeholder="user name" data-ng-paste="pasted($event)"/>
+        <div data-ng-bind="::user.age"></div>
+        <div data-ng-bind="user.gender"></div>
+    </div>
+    <div data-ng-controller="AliasController as vm" data-ng-init="user.age=12">
+            <div data-ng-bind="vm.content|log|filter:vm.logger"></div>
+        </div>
+        <banner></banner>
+</body>
+</html>
+
+<!-- <!doctype html>
+<html>
+<body>
+<div ng-controller="WelcomeController">
+  {{greeting}}
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script>
+  var app = angular.module('demo', [])
+  .controller('WelcomeController', function($scope) {
+      $scope.greeting = 'Welcome!';
+  });
+  angular.bootstrap(document, ['demo']);
+</script>
+</body>
+</html> -->
